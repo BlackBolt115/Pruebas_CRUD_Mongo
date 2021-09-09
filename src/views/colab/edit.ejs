@@ -1,0 +1,74 @@
+<%- include('../partials/_header') %>
+
+<div class="container">
+    <div class="row">
+        <!--FORM-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/colab/edit/<%=colaboradores._id%>" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre" value="<%=colaboradores.nombre%>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="correo" placeholder="correo@magnetmex.com" value="<%=colaboradores.correo%>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="contraseña" placeholder="Contraseña" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <select name="sexo" class="custom-select" required>
+                                <option value="" disabled selected hidden>Sexo...</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="area" class="custom-select" required>
+                                <option value="" disabled selected hidden>Area...</option>
+                                <option value="Digital Platform">Digital Platform</option>
+                                <option value="Smart Spaces">Smart Spaces</option>
+                                <option value="Critical Facilities">Critical Facilities</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="puesto" class="custom-select" required>
+                                <option value="" disabled selected hidden>Puesto...</option>
+                                <option value="Ingeniero">Ingeniero de Implementación</option>
+                                <option value="Dibujante">Dibujante</option>
+                                <option value="Director">Director</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="zona" class="custom-select" required>
+                                <option value="" disabled selected hidden>Zona...</option>
+                                <option value="Zona 1">Zona 1</option>
+                                <option value="Zona 2">Zona 2</option>
+                                <option value="Zona 3">Zona 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="unidad" class="custom-select" required>
+                                <option value="" disabled selected hidden>Unidad...</option>
+                                <option value="Unidad 1">Unidad 1</option>
+                                <option value="Unidad 2">Unidad 2</option>
+                                <option value="Unidad 3">Unidad 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="maneja" class="custom-select" required>
+                                <option value="" disabled selected hidden>Maneja?...</option>
+                                <option value=true>Si</option>
+                                <option value=false>No</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/_footer') %>

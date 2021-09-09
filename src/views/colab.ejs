@@ -1,0 +1,114 @@
+<%- include('partials/_header') %>
+
+<div class="container">
+    <div class="row">
+        <!--FORM-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/colab/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="correo" placeholder="correo@magnetmex.com" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="contraseña" placeholder="Contraseña" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <select name="sexo" class="custom-select" required>
+                                <option value="" disabled selected hidden>Sexo...</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="area" class="custom-select" required>
+                                <option value="" disabled selected hidden>Area...</option>
+                                <option value="Digital Platform">Digital Platform</option>
+                                <option value="Smart Spaces">Smart Spaces</option>
+                                <option value="Critical Facilities">Critical Facilities</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="puesto" class="custom-select" required>
+                                <option value="" disabled selected hidden>Puesto...</option>
+                                <option value="Ingeniero">Ingeniero de Implementación</option>
+                                <option value="Dibujante">Dibujante</option>
+                                <option value="Director">Director</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="zona" class="custom-select" required>
+                                <option value="" disabled selected hidden>Zona...</option>
+                                <option value="Zona 1">Zona 1</option>
+                                <option value="Zona 2">Zona 2</option>
+                                <option value="Zona 3">Zona 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="unidad" class="custom-select" required>
+                                <option value="" disabled selected hidden>Unidad...</option>
+                                <option value="Unidad 1">Unidad 1</option>
+                                <option value="Unidad 2">Unidad 2</option>
+                                <option value="Unidad 3">Unidad 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="maneja" class="custom-select" required>
+                                <option value="" disabled selected hidden>Maneja?...</option>
+                                <option value=true>Si</option>
+                                <option value=false>No</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--LIST-->
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Sexo</th>
+                        <th>Area</th>
+                        <th>Puesto</th>
+                        <th>Asignacion</th>
+                        <th>Zona</th>
+                        <th>Unidad</th>
+                        <th>Maneja</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i<colaboradores.length; i++){ %>
+                        <tr>
+                            <td><%=i+1%></td>
+                            <td><%=colaboradores[i].nombre%></td>
+                            <td><%=colaboradores[i].correo%></td>
+                            <td><%=colaboradores[i].sexo%></td>
+                            <td><%=colaboradores[i].area%></td>
+                            <td><%=colaboradores[i].puesto%></td>
+                            <td><%=colaboradores[i].zona%></td>
+                            <td><%=colaboradores[i].unidad%></td>
+                            <td><%=colaboradores[i].maneja%></td>
+                            <td>
+                                <a href="/colab/delete/<%=colaboradores[i].id%>" class="btn btn-danger">Delete</a>
+                                <a href="/colab/edit/<%=colaboradores[i].id%>" class="btn btn-info">Edit</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/_footer') %>
